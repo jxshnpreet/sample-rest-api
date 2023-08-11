@@ -20,24 +20,24 @@ public class StudentController {
         return studentService.getAllStudents();
     }
 
-//    @RequestMapping(method = RequestMethod.GET, value = "/Students/{r_no}")
-//    public Student getStudentInfo(@PathVariable String r_no){
-//        return studentService.getStudentInfo(r_no);
-//    }
-////    POST-localhost:8080/Students -> Enroll/Add a Student
-////    Request body is converting json into object
-//    @RequestMapping(method = RequestMethod.POST, value = "/Students")
-//    public Student addStudent(@RequestBody Student student){
-//        studentService.addStudent(student);
-//        return student;
-//    }
-////    PUT - localhost8080/Students/r_no -> Edit the info of the student whose r_no is passed
-////    localhost:8080/Students/12345
-//    @RequestMapping(method = RequestMethod.PUT, value = "/Students/{r_no}")
-//    public Student editStudent(@PathVariable String r_no, @RequestBody Student student){
-//        studentService.editStudent(r_no, student);
-//        return student;
-//    }
+    @RequestMapping(method = RequestMethod.GET, value = "/Students/{r_no}")
+    public Student getStudentInfo(@PathVariable String r_no){
+        return studentService.getStudentInfo(r_no);
+    }
+//    POST-localhost:8080/Students -> Enroll/Add a Student
+//    Request body is converting json into object
+    @RequestMapping(method = RequestMethod.POST, value = "/Students")
+    public Student addStudent(@RequestBody Student student){
+        studentService.addStudent(student);
+        return student;
+    }
+//    PUT - localhost8080/Students/r_no -> Edit the info of the student whose r_no is passed
+//    localhost:8080/Students/12345
+    @RequestMapping(method = RequestMethod.PUT, value = "/Students/{r_no}")
+    public Student editStudent(@PathVariable String r_no, @RequestBody Student student){
+        studentService.editStudent(r_no, student);
+        return student;
+    }
 
 
 }
