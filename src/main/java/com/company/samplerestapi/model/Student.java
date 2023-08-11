@@ -1,10 +1,24 @@
 package com.company.samplerestapi.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 //POJO :- Plain Old Java Object
+@Entity
+@Table(name = "students")
 public class Student {
+    @Column(name = "name")
     private String name;
+    @Column(name = "dept")
     private String dept;
+    @Id
+    @Column(name = "r_no")
     private String r_no;
+    @Column(name = "stream")
     private String stream;
+    public Student(){}
 
     public Student(String r_no, String name, String stream, String dept) {
         this.dept = dept;
