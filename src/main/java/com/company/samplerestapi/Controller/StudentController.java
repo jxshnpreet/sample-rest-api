@@ -2,10 +2,12 @@ package com.company.samplerestapi.Controller;
 
 import com.company.samplerestapi.model.Student;
 import com.company.samplerestapi.services.StudentService;
+import org.hibernate.sql.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class StudentController {
@@ -20,8 +22,10 @@ public class StudentController {
         return studentService.getAllStudents();
     }
 
+//    Path variable take variable value from link while request body will take variable input from body
+
     @RequestMapping(method = RequestMethod.GET, value = "/Students/{r_no}")
-    public Student getStudentInfo(@PathVariable String r_no){
+    public Optional<Student> getStudentInfo(@PathVariable String r_no){
         return studentService.getStudentInfo(r_no);
     }
 //    POST-localhost:8080/Students -> Enroll/Add a Student
@@ -38,6 +42,10 @@ public class StudentController {
         studentService.editStudent(r_no, student);
         return student;
     }
-
+//  DELETE :- Remove the student whose r_no is passed
+    @RequestMapping(method = RequestMethod.DELETE, value = "/Students/{r_no}")
+    public Optional<Student> deleteStudent(@PathVariable String r_no){
+        return studentService.deleteStudent(r_no);
+    }
 
 }
